@@ -7,6 +7,9 @@ def gerar_senha():
     try:
         tamanho = int(entry_tamanho.get()) # pega o tamanho da senha digitada pelo usuário
 
+        if tamanho < 0: # verifica se o número digitado pelo usuário é negativo
+            raise ValueError # lança um erro
+
         # utilização de constantes do do módulo string
         alfabeto = string.ascii_letters # alfabeto maiúsculo e minúsculo
         numeros = string.digits # números
@@ -21,10 +24,13 @@ def gerar_senha():
         entry_senha.delete(0, tk.END) # apaga o campo em que é exibida a senha gerada
         entry_senha.insert(0, senha) # insere a nova senha gerada após a anterior ter sido apafada
     except ValueError:
-        #tratamento de erro, caso o usuário digite um valor diferente de número no campo que recebe o tamanho da senha
+        # tratamento de erro, caso o usuário digite um valor diferente de número positivo no campo que recebe o tamanho da senha
         # método showerror vai exibir pop-up de erro
         # o primeiro valor é o título da janela, Erro, o segundo é a mensagem no centro dela.
-        messagebox.showerror("Erro", "Digite um número válido para o tamanho da senha.")
+        messagebox.showerror("Erro", """
+            Digite um número válido para o tamanho da senha.
+            O valor precisa ser positivo e não pode ser letras ou símbolos.
+        """)
 
 def copiar_senha(): # função para copiar a senha ao ser clicado botão de copiar
     root.clipboard_clear() # limpa a área de transfência do SO, deixando-a pronta para receber um novo valor

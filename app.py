@@ -7,6 +7,7 @@ def gerar_senha():
     try:
         tamanho = int(entry_tamanho.get()) # pega o tamanho da senha digitada pelo usuário
 
+        # utilização de constantes do do módulo string
         alfabeto = string.ascii_letters # alfabeto maiúsculo e minúsculo
         numeros = string.digits # números
         caracteres_especiais = string.punctuation # caracteres especiais
@@ -32,7 +33,7 @@ def copiar_senha(): # função para copiar a senha ao ser clicado botão de copi
     root.update() # atualiza a interface gráfica, garantindo que o usuário possa colá-la
     # méto showinfo abre opo up informativo na tela
     # primeiro argumento é o título e o segundo é o conteúdo, localizado no centro do pop up
-    messagebox.showinfo("Copiado", "Senha copiada para a área de transferência!") #
+    messagebox.showinfo("Copiado", "Senha copiada para a área de transferência!")
 
 # criando a janela
 root = tk.Tk() # cria intância a janela
@@ -55,10 +56,10 @@ btn_gerar = tk.Button(root, text="Gerar Senha", command=gerar_senha)
 btn_gerar.pack(pady=5)
 
 # cria o campo para exibir a nova senha, com espaço para 30 caracteres
-# o campo é usado na unfção gerar_senha, para carregar o valor, e na função copiar senha, para recuperar valor e ser colocado
+# o campo é usado na função gerar_senha, para carregar o valor, e na função copiar senha, para recuperar valor e ser colocado
 # na área de transferência
 entry_senha = tk.Entry(root, width=30) 
-entry_senha.pack() # posiciona automaticamente, seguind o padrão
+entry_senha.pack() # posiciona automaticamente, seguindo o padrão
 
 # botão para copiar senha
 # cria um botao na janela root com texto 'Copiar', que quando é clicado o parâmetro command chama a função 'copiar_senha'

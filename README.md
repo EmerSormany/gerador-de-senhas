@@ -70,14 +70,17 @@ root.mainloop()
 
 **Uso no sistema:**
 
-- Utilizo para gerar 2 pop-ups, de sucesso, ao copiar senha, e de erro, quando o usuário digitar valor não numérico para indicar o tamanho da senha. 
+- Utilizo para gerar 2 pop-ups, de sucesso, ao copiar senha, e de erro, quando o usuário digitar valor não numérico ou negativo para indicar o tamanho da senha. 
 - O método showinfo cria um pop-up informativo.
 - O método showerror cria um pop-up de erro.
 - Ambos recebem o primeiro argumento, que é o título, e o segundo argumento, que é o conteúdo exibido no centro do pop-up.
 
 ```python
 messagebox.showinfo("Copiado", "Senha copiada para a área de transferência!")
-messagebox.showerror("Erro", "Digite um número válido para o tamanho da senha.")
+messagebox.showerror("Erro", """
+            Digite um número válido para o tamanho da senha.
+            O valor precisa ser positivo e não pode ser letras ou símbolos.
+        """)
 ```
 
 ## **3. Utilização do Projeto**

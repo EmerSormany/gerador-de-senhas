@@ -17,9 +17,8 @@ def gerar_senha():
         
         senha = '' # variável com string usada para guardar senha
         for _ in range(tamanho): # executa um loop do tamanhã digitado pelo usuário
-            # método join, chamado a partir de uma string, usado para concatenar um iterável em um string contínua
             # método choice, do módulo secrets, é usado para selecionar um caractere aleatório de uma string
-            senha = senha + ''.join(secrets.choice(alfabeto + numeros + caracteres_especiais)) # gera senha
+            senha = senha + secrets.choice(alfabeto + numeros + caracteres_especiais)
 
         entry_senha.delete(0, tk.END) # apaga o campo em que é exibida a senha gerada
         entry_senha.insert(0, senha) # insere a nova senha gerada após a anterior ter sido apafada
